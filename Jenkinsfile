@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Run Postman Collections') {
     steps {
+        bat 'echo JENKINS_BAT_OK'
         bat 'call run_all_tests.bat'
     }
 }
