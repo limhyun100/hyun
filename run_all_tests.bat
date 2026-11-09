@@ -1,4 +1,5 @@
 @echo off
+echo [DEBUG] batch file started
 setlocal EnableExtensions
 cd /d "%~dp0"
 
