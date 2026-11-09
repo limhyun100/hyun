@@ -3,12 +3,10 @@ pipeline {
     tools { nodejs 'nodejs' }
     stages {
         stage('Run Postman Collections') {
-            steps {
-                bat 'newman run Login_API_Test.postman_collection.json -e GameQA_ENV.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export newman/Login_Report.html --export-environment GameQA_ENV.postman_environment.json'
-                bat 'newman run Ranking_API_Test.postman_collection.json -e GameQA_ENV.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export newman/Ranking_Report.html'
-                bat 'newman run Item_Grant_API_Test.postman_collection.json -e GameQA_ENV.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export newman/ItemGrant_Report.html'
-            }
-        }
+    steps {
+        bat 'call run_all_tests.bat'
+    }
+}
     }
 
     post {
