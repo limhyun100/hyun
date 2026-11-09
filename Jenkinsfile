@@ -2,13 +2,6 @@ pipeline {
   agent any
   tools { nodejs 'nodejs' }   // Manage Jenkins > Global Tool Configuration에서 등록한 이름
 
-  stages {
-    stage('Prepare') {
-      steps {
-        bat 'if not exist newman mkdir newman'
-      }
-    }
-
     stage('Install Newman') {
       steps {
         bat 'npm install -g newman newman-reporter-htmlextra'
