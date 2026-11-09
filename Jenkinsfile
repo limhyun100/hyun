@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools { nodejs 'nodejs' }
-
+    stages {
         stage('Run Postman Collections') {
             steps {
                 bat 'newman run Login_API_Test.postman_collection.json -e GameQA_ENV.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export newman/Login_Report.html --export-environment GameQA_ENV.postman_environment.json'
