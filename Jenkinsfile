@@ -1,7 +1,6 @@
 pipeline {
     agent any
     tools { nodejs 'nodejs' }
-        }
 
         stage('Run Postman Collections') {
             steps {
