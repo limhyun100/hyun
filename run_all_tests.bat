@@ -40,5 +40,5 @@ exit /b 0
 :fail
 echo.
 echo [FAILED] See messages above. Make sure mock server is running:  node server.js
-pause
+
 exit /b 1
