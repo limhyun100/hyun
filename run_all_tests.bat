@@ -21,15 +21,15 @@ where newman >nul 2>&1 || (echo [ERROR] newman not found. Install: npm install -
 if not exist "%OUTDIR%" mkdir "%OUTDIR%"
 
 echo === 1/3: Login ===
-call newman run "%COLL_LOGIN%" -e "%ENV%" -r cli,htmlextra --reporter-htmlextra-export "%OUTDIR%\Login_Report.html" --export-environment "%ENV%"
+call newman run "%COLL_LOGIN%" -e "%ENV%" -r cli,htmlextra --reporter-htmlextra-export "%OUTDIR%\Login_Report.html" --export-environment "%ENV%" --timeout 60000 --timeout-request 10000
 if errorlevel 1 echo [ERROR] Login failed & goto :fail
 
 echo === 2/3: Ranking ===
-call newman run "%COLL_RANK%" -e "%ENV%" -r cli,htmlextra --reporter-htmlextra-export "%OUTDIR%\Ranking_Report.html"
+call newman run "%COLL_RANK%" -e "%ENV%" -r cli,htmlextra --reporter-htmlextra-export "%OUTDIR%\Ranking_Report.html" --timeout 60000 --timeout-request 10000
 if errorlevel 1 echo [ERROR] Ranking failed & goto :fail
 
 echo === 3/3: Item Grant ===
-call newman run "%COLL_ITEM%" -e "%ENV%" -r cli,htmlextra --reporter-htmlextra-export "%OUTDIR%\ItemGrant_Report.html"
+call newman run "%COLL_ITEM%" -e "%ENV%" -r cli,htmlextra --reporter-htmlextra-export "%OUTDIR%\ItemGrant_Report.html" --timeout 60000 --timeout-request 10000
 if errorlevel 1 echo [ERROR] Item Grant failed & goto :fail
 
 echo.
