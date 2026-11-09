@@ -34,7 +34,7 @@ if errorlevel 1 echo [ERROR] Item Grant failed & goto :fail
 
 echo.
 echo [DONE] Reports in "%OUTDIR%": Login_Report.html, Ranking_Report.html, ItemGrant_Report.html
-pause
+
 exit /b 0
 
 :fail
