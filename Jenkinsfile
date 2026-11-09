@@ -1,12 +1,6 @@
 pipeline {
     agent any
     tools { nodejs 'nodejs' }
-
-    stages {
-        stage('Install Newman') {
-            steps {
-                bat 'npm install -g newman newman-reporter-htmlextra'
-            }
         }
 
         stage('Run Postman Collections') {
